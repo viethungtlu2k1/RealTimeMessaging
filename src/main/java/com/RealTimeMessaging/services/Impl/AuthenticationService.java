@@ -36,6 +36,6 @@ public class AuthenticationService {
         setRole.stream().forEach(i -> authorities.add(new SimpleGrantedAuthority(i.getName())));
         var jwtToken = jwtService.generateToken(user, authorities);
         var jwtRefreshToken = jwtService.generateRefreshToken(user, authorities);
-        return AuthenticationResponse.builder().token(jwtToken).refreshToken(jwtRefreshToken).build();
+        return AuthenticationResponse.builder().accessToken(jwtToken).refreshToken(jwtRefreshToken).username(user.getUsername()).build();
     }
 }

@@ -17,6 +17,11 @@ public class RestAuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login (@RequestBody AuthenticationRequest authenticationRequest) {
         return ResponseEntity.ok(authenticationService.authenticate(authenticationRequest));
+    }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        // Xử lý logic logout ở đây
+        return ResponseEntity.ok("Logout thành công");
     }
 }
